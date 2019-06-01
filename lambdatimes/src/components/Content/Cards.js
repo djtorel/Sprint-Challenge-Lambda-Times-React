@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Card from './Card';
 
 const generateKey = () => Math.floor(Math.random() * 1000000000) + Date.now();
@@ -16,5 +17,15 @@ const Cards = ({ cards }) => {
 };
 
 // Make sure you include prop types for all of your incoming props
+Cards.propTypes = {
+  cards: PropTypes.arrayOf(
+    PropTypes.shape({
+      headline: PropTypes.string.isRequired,
+      tab: PropTypes.string.isRequired,
+      img: PropTypes.string.isRequired,
+      author: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
+};
 
 export default Cards;
